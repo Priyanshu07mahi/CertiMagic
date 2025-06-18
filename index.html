@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CertiMagic – Bulk Certificate Generator</title>
+    <!-- Google Fonts: Handwriting and Display -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Dancing+Script|Satisfy|Indie+Flower|Great+Vibes|Shadows+Into+Light|Caveat|Lobster|Montserrat:700|Roboto:400|Quicksand:700|Fira+Sans:400|Bebas+Neue|Merienda|Permanent+Marker|Architects+Daughter&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700|Poppins:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="hero">
+        <h1 class="animated-title">CertiMagic</h1>
+        <p class="subtitle">Create thousands of beautiful certificates in seconds, with your favorite handwriting fonts and stunning styles.</p>
+        <div class="wave"></div>
+    </div>
+    <div class="form-card animated-fadein glass">
+        <label>Upload Certificate Template (PNG/JPG):</label>
+        <input type="file" id="templateUpload" accept="image/png, image/jpeg">
+        <label>Upload Names List (CSV):</label>
+        <input type="file" id="namesUpload" accept=".csv">
+        <label>Select Handwriting Font:</label>
+        <select id="fontSelect">
+            <option value="'Dancing Script', cursive">Dancing Script</option>
+            <option value="'Pacifico', cursive">Pacifico</option>
+            <option value="'Satisfy', cursive">Satisfy</option>
+            <option value="'Indie Flower', cursive">Indie Flower</option>
+            <option value="'Great Vibes', cursive">Great Vibes</option>
+            <option value="'Shadows Into Light', cursive">Shadows Into Light</option>
+            <option value="'Caveat', cursive">Caveat</option>
+            <option value="'Lobster', cursive">Lobster</option>
+            <option value="'Merienda', cursive">Merienda</option>
+            <option value="'Permanent Marker', cursive">Permanent Marker</option>
+            <option value="'Architects Daughter', cursive">Architects Daughter</option>
+        </select>
+        <label>Font Size:</label>
+        <input type="range" id="fontSize" min="24" max="96" value="48">
+        <span id="fontSizeValue">48</span> px
+        <label>Font Color:</label>
+        <input type="color" id="fontColor" value="#191654">
+        <label>Vertical Position:</label>
+        <input type="range" id="fontY" min="40" max="90" value="60">
+        <span id="fontYValue">60</span> %
+        <div class="button-row">
+            <button id="previewBtn" class="btn-animated">Preview</button>
+            <button id="generateBtn" class="btn-animated">Generate Certificates</button>
+            <button id="sendMailBtn" class="btn-animated">Send on Mail</button>
+        </div>
+    </div>
+    <div id="previewArea" class="preview-area"></div>
+    <footer>
+        <p>Made with <span class="heart">♥</span> &copy; 2025 <b>CertiMagic</b></p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.0.1/dist/tesseract.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("S4HzvNzmI2yfl7Mh5"); // Your EmailJS public key
+        })();
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
